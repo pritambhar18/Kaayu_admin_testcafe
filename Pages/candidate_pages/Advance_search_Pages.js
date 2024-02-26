@@ -63,10 +63,10 @@ class Advance_Search_Page {
         do {
             await t.expect(this.list_candidates_isnot.textContent).notContains(searchemail)
             .then(() => {
-                console.log(`Search data matches the expected data.Expected data:${searchemail}`);
+                console.log(`Search data not present in the list. Search Email:${searchemail}`);
             })
             .catch(error => {
-                console.error(`Search data does not match the expected data. Expected data:${searchemail}. Error: ${error}`);
+                console.error(`Search data is present in the list. Search Email:${searchemail}. Error: ${error}`);
             })
             await t.click(this.nextPageButton);
             currentPage++;

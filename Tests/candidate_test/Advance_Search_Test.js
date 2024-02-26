@@ -47,7 +47,7 @@ test(`search name with filter is type `, async t => {
     const search_email = '7test_candidate@yopmail.com';
     await Advance_search_Pages.Search_Email(search_email);
     await Advance_search_Pages.Click_Applybtn();
-    await Advance_search_Pages.navigateToNextPage('anderson.frederique@example.net')
+    await Advance_search_Pages.navigateToNextPage(search_email)
     /*console.log('Log',await Advance_search_Pages.list_candidates_isnot.textContent);
     const totalPages = Selector('#candidates-table_paginate > span > a:nth-child(7)'); 
     console.log('totalPages',await totalPages.textContent);
