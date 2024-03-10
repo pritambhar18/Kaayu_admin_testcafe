@@ -1,0 +1,9 @@
+[
+    {
+        "job_title": "Laravel Developer",
+        "number_of_openings": "12",
+        "company": "Deckow-Rohan",
+        "job_description": "Test job description for the post Laravel developer",
+        "expected_result":"Job Created Successfully"
+    }
+]

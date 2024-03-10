@@ -1,0 +1,218 @@
+{
+    "sourceFile": "Pages/job_pages/Add_jobs_Pages.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 50,
+            "patches": [
+                {
+                    "date": 1709928018985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1709928074638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,11 @@\n import { ClientFunction, t, Selector } from 'testcafe';\r\n \r\n \r\n-class Add_Candidate_Page {\r\n+class Add_Jobs_Page {\r\n \r\n\\ No newline at end of file\n-    constructor() {\n+    constructor() {\r\n+\r\n+        \r\n+}\r\n+\r\n+export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709928095703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,7 @@\n \r\n         \r\n }\r\n \r\n+}\r\n+\r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709928110759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n \r\n class Add_Jobs_Page {\r\n \r\n     constructor() {\r\n+        this.click_candidates = Selector('body > div.wrapper > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(2) > a');\r\n \r\n         \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709928153855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,9 @@\n \r\n class Add_Jobs_Page {\r\n \r\n     constructor() {\r\n-        this.click_candidates = Selector('body > div.wrapper > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(2) > a');\r\n-\r\n+        this.click_candidates = Selector();\r\n         \r\n }\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1709929920102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n class Add_Jobs_Page {\r\n \r\n     constructor() {\r\n-        this.click_candidates = Selector();\r\n+        this.click_candidates = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n         \r\n }\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1709929932838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n class Add_Jobs_Page {\r\n \r\n     constructor() {\r\n-        this.click_candidates = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n+        this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n         \r\n }\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1709929955071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,10 @@\n     constructor() {\r\n         this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n         \r\n }\r\n-\r\n+async Click_Candidates() {\r\n+    await t.click(this.click_jobs);\r\n }\r\n+}\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709929964313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     constructor() {\r\n         this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n         \r\n }\r\n-async Click_Candidates() {\r\n+async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709930126553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n class Add_Jobs_Page {\r\n \r\n     constructor() {\r\n         this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n-        \r\n+        this.add-job-btn =Selector('#topIconPanel > a > span')\r\n }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709930140064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n class Add_Jobs_Page {\r\n \r\n     constructor() {\r\n         this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n-        this.add-job-btn =Selector('#topIconPanel > a > span')\r\n+        this.add_job_btn = Selector('#topIconPanel > a > span')\r\n }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709930150858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,7 +9,10 @@\n }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n+async Click_Jobs() {\r\n+    await t.click(this.add_job_btn);\r\n }\r\n+}\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709930357256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,13 +5,14 @@\n \r\n     constructor() {\r\n         this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n         this.add_job_btn = Selector('#topIconPanel > a > span')\r\n+        this.job_title = Selector('#job-title')\r\n }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n-async Click_Jobs() {\r\n+async Click_AddJobs() {\r\n     await t.click(this.add_job_btn);\r\n }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709930436240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,7 +13,10 @@\n }\r\n async Click_AddJobs() {\r\n     await t.click(this.add_job_btn);\r\n }\r\n+async job_title() {\r\n+    await t.typeText(this.job_title, title)\r\n }\r\n+}\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709930458161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,10 @@\n }\r\n async Click_AddJobs() {\r\n     await t.click(this.add_job_btn);\r\n }\r\n-async job_title() {\r\n-    await t.typeText(this.job_title, title)\r\n+async job_title(title) {\r\n+    await t.typeText(this.title, title)\r\n }\r\n }\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709930464894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n async Click_AddJobs() {\r\n     await t.click(this.add_job_btn);\r\n }\r\n async job_title(title) {\r\n-    await t.typeText(this.title, title)\r\n+    await t.typeText(this.job_title, title)\r\n }\r\n }\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709930518568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n }\r\n async Click_AddJobs() {\r\n     await t.click(this.add_job_btn);\r\n }\r\n-async job_title(title) {\r\n+async Job_Title(title) {\r\n     await t.typeText(this.job_title, title)\r\n }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709931046994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n     constructor() {\r\n         this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n         this.add_job_btn = Selector('#topIconPanel > a > span')\r\n         this.job_title = Selector('#job-title')\r\n+        this.click_company= Selector('')\r\n }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n@@ -16,7 +17,12 @@\n }\r\n async Job_Title(title) {\r\n     await t.typeText(this.job_title, title)\r\n }\r\n+async SetCountrySearchClick(search_country) {\r\n+    await t.click(this.country_click);\r\n+    await t.typeText(this.country_search, search_country);\r\n+    await t.click(this.country_search_click.withText(search_country));\r\n }\r\n+}\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709931125347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n     constructor() {\r\n         this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n         this.add_job_btn = Selector('#topIconPanel > a > span')\r\n         this.job_title = Selector('#job-title')\r\n-        this.click_company= Selector('')\r\n+        this.click_company= Selector('#select2-company_id-container')\r\n+        this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709931173491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,10 @@\n         this.add_job_btn = Selector('#topIconPanel > a > span')\r\n         this.job_title = Selector('#job-title')\r\n         this.click_company= Selector('#select2-company_id-container')\r\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n-}\r\n+        this.country_search_click=Selector('')\r\n+    }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n async Click_AddJobs() {\r\n"
+                },
+                {
+                    "date": 1709931181923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         this.add_job_btn = Selector('#topIconPanel > a > span')\r\n         this.job_title = Selector('#job-title')\r\n         this.click_company= Selector('#select2-company_id-container')\r\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n-        this.country_search_click=Selector('')\r\n+        this.country_search_click=Selector('#select2-company_id-results > li')\r\n     }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709931190987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n async Job_Title(title) {\r\n     await t.typeText(this.job_title, title)\r\n }\r\n async SetCountrySearchClick(search_country) {\r\n-    await t.click(this.country_click);\r\n+    await t.click(this.#select2-company_id-results > li);\r\n     await t.typeText(this.country_search, search_country);\r\n     await t.click(this.country_search_click.withText(search_country));\r\n }\r\n }\r\n"
+                },
+                {
+                    "date": 1709931224316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,12 +19,12 @@\n }\r\n async Job_Title(title) {\r\n     await t.typeText(this.job_title, title)\r\n }\r\n-async SetCountrySearchClick(search_country) {\r\n-    await t.click(this.#select2-company_id-results > li);\r\n-    await t.typeText(this.country_search, search_country);\r\n-    await t.click(this.country_search_click.withText(search_country));\r\n+async SetCountrySearchClick(search_company) {\r\n+    await t.click(this.click_company);\r\n+    await t.typeText(this.company_search, search_company);\r\n+    await t.click(this.country_search_click.withText(search_company));\r\n }\r\n }\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709931275590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n }\r\n async Job_Title(title) {\r\n     await t.typeText(this.job_title, title)\r\n }\r\n-async SetCountrySearchClick(search_company) {\r\n+async SetCompanySearchClick(search_company) {\r\n     await t.click(this.click_company);\r\n     await t.typeText(this.company_search, search_company);\r\n     await t.click(this.country_search_click.withText(search_company));\r\n }\r\n"
+                },
+                {
+                    "date": 1709931467084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,10 @@\n         this.job_title = Selector('#job-title')\r\n         this.click_company= Selector('#select2-company_id-container')\r\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n+\r\n+        this.job_description = Selector('description_ifr')\r\n     }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709931474228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         this.click_company= Selector('#select2-company_id-container')\r\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n-        this.job_description = Selector('description_ifr')\r\n+        this.job_description = Selector('#description_ifr')\r\n     }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709931486179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,10 @@\n         this.click_company= Selector('#select2-company_id-container')\r\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n-        this.job_description = Selector('#description_ifr')\r\n+        this.job_description-selection = Selector('#description_ifr')\r\n+        ti\r\n     }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709931533167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,10 @@\n         this.click_company= Selector('#select2-company_id-container')\r\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n-        this.job_description-selection = Selector('#description_ifr')\r\n-        ti\r\n+        this.job_description_selection = Selector('#description_ifr')\r\n+        this.job_description = Selector('tinymce')\r\n     }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709931542095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n         this.job_description_selection = Selector('#description_ifr')\r\n-        this.job_description = Selector('tinymce')\r\n+        this.job_description = Selector('body#tinymce')\r\n     }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n"
+                },
+                {
+                    "date": 1709931577189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n         this.job_description_selection = Selector('#description_ifr')\r\n         this.job_description = Selector('body#tinymce')\r\n+\r\n     }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n }\r\n@@ -27,7 +28,10 @@\n     await t.click(this.click_company);\r\n     await t.typeText(this.company_search, search_company);\r\n     await t.click(this.country_search_click.withText(search_company));\r\n }\r\n+async SetjobDescription(){\r\n+    \r\n }\r\n+}\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709931606009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,18 @@\n     await t.click(this.click_company);\r\n     await t.typeText(this.company_search, search_company);\r\n     await t.click(this.country_search_click.withText(search_company));\r\n }\r\n-async SetjobDescription(){\r\n-    \r\n+async SetjobDescription(jobdescription_value){\r\n+    const iframeSelector = Selector('#description_ifr');\r\n+        await t\r\n+            .switchToIframe(iframeSelector)\r\n+            .typeText('body#tinymce', `Description for ${jobTitle}`)\r\n+            .switchToMainWindow()\r\n+            .wait(5000);\r\n+\r\n+        await t.click('#submit');\r\n+        await t.wait(5000);\r\n }\r\n }\r\n \r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709931630123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     await t.typeText(this.company_search, search_company);\r\n     await t.click(this.country_search_click.withText(search_company));\r\n }\r\n async SetjobDescription(jobdescription_value){\r\n-    const iframeSelector = Selector('#description_ifr');\r\n+    const iframeSelector = job_description_selection\r\n         await t\r\n             .switchToIframe(iframeSelector)\r\n             .typeText('body#tinymce', `Description for ${jobTitle}`)\r\n             .switchToMainWindow()\r\n"
+                },
+                {
+                    "date": 1709931692849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,11 @@\n     await t.typeText(this.company_search, search_company);\r\n     await t.click(this.country_search_click.withText(search_company));\r\n }\r\n async SetjobDescription(jobdescription_value){\r\n-    const iframeSelector = job_description_selection\r\n+   // const iframeSelector = job_description_selection\r\n         await t\r\n-            .switchToIframe(iframeSelector)\r\n+            .switchToIframe(job_description_selection)\r\n             .typeText('body#tinymce', `Description for ${jobTitle}`)\r\n             .switchToMainWindow()\r\n             .wait(5000);\r\n \r\n"
+                },
+                {
+                    "date": 1709931719426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n async SetjobDescription(jobdescription_value){\r\n    // const iframeSelector = job_description_selection\r\n         await t\r\n             .switchToIframe(job_description_selection)\r\n-            .typeText('body#tinymce', `Description for ${jobTitle}`)\r\n+            await t.typeText(this.job_description, jobdescription_value);\r\n             .switchToMainWindow()\r\n             .wait(5000);\r\n \r\n         await t.click('#submit');\r\n"
+                },
+                {
+                    "date": 1709931757305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n         this.job_description_selection = Selector('#description_ifr')\r\n         this.job_description = Selector('body#tinymce')\r\n+        this.submit=Selector('#submit')\r\n \r\n     }\r\n async Click_Jobs() {\r\n     await t.click(this.click_jobs);\r\n@@ -32,9 +33,9 @@\n async SetjobDescription(jobdescription_value){\r\n    // const iframeSelector = job_description_selection\r\n         await t\r\n             .switchToIframe(job_description_selection)\r\n-            await t.typeText(this.job_description, jobdescription_value);\r\n+            await t.typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n             .wait(5000);\r\n \r\n         await t.click('#submit');\r\n"
+                },
+                {
+                    "date": 1709931773993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n             await t.typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n             .wait(5000);\r\n \r\n-        await t.click('#submit');\r\n+        await t.click(submit);\r\n         await t.wait(5000);\r\n }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709932001395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n         this.add_job_btn = Selector('#topIconPanel > a > span')\r\n         this.job_title = Selector('#job-title')\r\n         this.click_company= Selector('#select2-company_id-container')\r\n-        this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input', 'Lehner, Haag and Smith')\r\n+        this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input')\r\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n         this.job_description_selection = Selector('#description_ifr')\r\n         this.job_description = Selector('body#tinymce')\r\n"
+                },
+                {
+                    "date": 1709973366764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,46 @@\n+import { ClientFunction, t, Selector } from 'testcafe';\r\n+\r\n+\r\n+class Add_Jobs_Page {\r\n+\r\n+    constructor() {\r\n+        this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n+        this.add_job_btn = Selector('#topIconPanel > a > span')\r\n+        this.job_title = Selector('#job-title')\r\n+        this.click_company= Selector('#select2-company_id-container')\r\n+        this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input')\r\n+        this.country_search_click=Selector('#select2-company_id-results > li')\r\n+\r\n+        this.job_description_selection = Selector('#description_ifr')\r\n+        this.job_description = Selector('body#tinymce')\r\n+        this.submit=Selector('#submit')\r\n+\r\n+    }\r\n+async Click_Jobs() {\r\n+    await t.click(this.click_jobs);\r\n+}\r\n+async Click_AddJobs() {\r\n+    await t.click(this.add_job_btn);\r\n+}\r\n+async Job_Title(title) {\r\n+    await t.typeText(this.job_title, title)\r\n+}\r\n+async SetCompanySearchClick(search_company) {\r\n+    await t.click(this.click_company);\r\n+    await t.typeText(this.company_search, search_company);\r\n+    await t.click(this.country_search_click.withText(search_company));\r\n+}\r\n+async SetjobDescription(jobdescription_value){\r\n+    const iframeSelector = job_description_selection\r\n+        await t\r\n+            .switchToIframe(iframeSelector)\r\n+            await t.typeText(this.job_description, jobdescription_value)\r\n+            .switchToMainWindow()\r\n+            .wait(5000);\r\n+\r\n+        await t.click(submit);\r\n+        await t.wait(5000);\r\n+}\r\n+}\r\n+\r\n+export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709973374253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         this.click_company= Selector('#select2-company_id-container')\r\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input')\r\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n-        this.job_description_selection = Selector('#description_ifr')\r\n+     //   this.job_description_selection = Selector('#description_ifr')\r\n         this.job_description = Selector('body#tinymce')\r\n         this.submit=Selector('#submit')\r\n \r\n     }\r\n@@ -42,51 +42,5 @@\n         await t.wait(5000);\r\n }\r\n }\r\n \r\n-export default new Add_Jobs_Page();\n-import { ClientFunction, t, Selector } from 'testcafe';\r\n-\r\n-\r\n-class Add_Jobs_Page {\r\n-\r\n-    constructor() {\r\n-        this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n-        this.add_job_btn = Selector('#topIconPanel > a > span')\r\n-        this.job_title = Selector('#job-title')\r\n-        this.click_company= Selector('#select2-company_id-container')\r\n-        this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input')\r\n-        this.country_search_click=Selector('#select2-company_id-results > li')\r\n-\r\n-        this.job_description_selection = Selector('#description_ifr')\r\n-        this.job_description = Selector('body#tinymce')\r\n-        this.submit=Selector('#submit')\r\n-\r\n-    }\r\n-async Click_Jobs() {\r\n-    await t.click(this.click_jobs);\r\n-}\r\n-async Click_AddJobs() {\r\n-    await t.click(this.add_job_btn);\r\n-}\r\n-async Job_Title(title) {\r\n-    await t.typeText(this.job_title, title)\r\n-}\r\n-async SetCompanySearchClick(search_company) {\r\n-    await t.click(this.click_company);\r\n-    await t.typeText(this.company_search, search_company);\r\n-    await t.click(this.country_search_click.withText(search_company));\r\n-}\r\n-async SetjobDescription(jobdescription_value){\r\n-   // const iframeSelector = job_description_selection\r\n-        await t\r\n-            .switchToIframe(job_description_selection)\r\n-            await t.typeText(this.job_description, jobdescription_value)\r\n-            .switchToMainWindow()\r\n-            .wait(5000);\r\n-\r\n-        await t.click(submit);\r\n-        await t.wait(5000);\r\n-}\r\n-}\r\n-\r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1709973404314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         this.click_company= Selector('#select2-company_id-container')\r\n         this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input')\r\n         this.country_search_click=Selector('#select2-company_id-results > li')\r\n \r\n-     //   this.job_description_selection = Selector('#description_ifr')\r\n+        this.job_description_selection = Selector('#description_ifr')\r\n         this.job_description = Selector('body#tinymce')\r\n         this.submit=Selector('#submit')\r\n \r\n     }\r\n"
+                },
+                {
+                    "date": 1709973481766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     await t.typeText(this.company_search, search_company);\r\n     await t.click(this.country_search_click.withText(search_company));\r\n }\r\n async SetjobDescription(jobdescription_value){\r\n-    const iframeSelector = job_description_selection\r\n+    const iframeSelector = this.job_description_selection\r\n         await t\r\n             .switchToIframe(iframeSelector)\r\n             await t.typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n"
+                },
+                {
+                    "date": 1709990258839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,10 +36,10 @@\n             .switchToIframe(iframeSelector)\r\n             await t.typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n             .wait(5000);\r\n-\r\n-        await t.click(submit);\r\n+            click(submit);\r\n+       \r\n         await t.wait(5000);\r\n }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709990303751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,13 +33,12 @@\n async SetjobDescription(jobdescription_value){\r\n     const iframeSelector = this.job_description_selection\r\n         await t\r\n             .switchToIframe(iframeSelector)\r\n-            await t.typeText(this.job_description, jobdescription_value)\r\n+            .typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n             .wait(5000);\r\n-            click(submit);\r\n-       \r\n+            click(this.submit);\r\n         await t.wait(5000);\r\n }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709990357085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n             .switchToIframe(iframeSelector)\r\n             .typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n             .wait(5000);\r\n-            click(this.submit);\r\n+            .click(this.submit);\r\n         await t.wait(5000);\r\n }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709990376458,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n             .switchToIframe(iframeSelector)\r\n             .typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n             .wait(5000);\r\n-            .click(this.submit);\r\n+           await t.click(this.submit);\r\n         await t.wait(5000);\r\n }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1709990517917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,45 @@\n+import { ClientFunction, t, Selector } from 'testcafe';\r\n+\r\n+\r\n+class Add_Jobs_Page {\r\n+\r\n+    constructor() {\r\n+        this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n+        this.add_job_btn = Selector('#topIconPanel > a > span')\r\n+        this.job_title = Selector('#job-title')\r\n+        this.click_company = Selector('#select2-company_id-container')\r\n+        this.company_search = Selector('body > span > span > span.select2-search.select2-search--dropdown > input')\r\n+        this.country_search_click = Selector('#select2-company_id-results > li')\r\n+\r\n+        this.job_description_selection = Selector('#description_ifr')\r\n+        this.job_description = Selector('body#tinymce')\r\n+        this.submit = Selector('#submit')\r\n+\r\n+    }\r\n+    async Click_Jobs() {\r\n+        await t.click(this.click_jobs);\r\n+    }\r\n+    async Click_AddJobs() {\r\n+        await t.click(this.add_job_btn);\r\n+    }\r\n+    async Job_Title(title) {\r\n+        await t.typeText(this.job_title, title)\r\n+    }\r\n+    async SetCompanySearchClick(search_company) {\r\n+        await t.click(this.click_company);\r\n+        await t.typeText(this.company_search, search_company);\r\n+        await t.click(this.country_search_click.withText(search_company));\r\n+    }\r\n+    async SetjobDescription(jobdescription_value) {\r\n+        const iframeSelector = this.job_description_selection\r\n+        await t\r\n+            .switchToIframe(iframeSelector)\r\n+            .typeText(this.job_description, jobdescription_value)\r\n+            .switchToMainWindow()\r\n+            .wait(5000);\r\n+        await t.click(this.submit);\r\n+        await t.wait(5000);\r\n+    }\r\n+}\r\n+\r\n+export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1710012834516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,50 +41,5 @@\n         await t.wait(5000);\r\n     }\r\n }\r\n \r\n-export default new Add_Jobs_Page();\n-import { ClientFunction, t, Selector } from 'testcafe';\r\n-\r\n-\r\n-class Add_Jobs_Page {\r\n-\r\n-    constructor() {\r\n-        this.click_jobs = Selector('body > div > aside.main-sidebar.sidebar-dark-primary.elevation-4 > div > div.os-padding > div > div > nav > ul > li:nth-child(4) > a');\r\n-        this.add_job_btn = Selector('#topIconPanel > a > span')\r\n-        this.job_title = Selector('#job-title')\r\n-        this.click_company= Selector('#select2-company_id-container')\r\n-        this.company_search=Selector('body > span > span > span.select2-search.select2-search--dropdown > input')\r\n-        this.country_search_click=Selector('#select2-company_id-results > li')\r\n-\r\n-        this.job_description_selection = Selector('#description_ifr')\r\n-        this.job_description = Selector('body#tinymce')\r\n-        this.submit=Selector('#submit')\r\n-\r\n-    }\r\n-async Click_Jobs() {\r\n-    await t.click(this.click_jobs);\r\n-}\r\n-async Click_AddJobs() {\r\n-    await t.click(this.add_job_btn);\r\n-}\r\n-async Job_Title(title) {\r\n-    await t.typeText(this.job_title, title)\r\n-}\r\n-async SetCompanySearchClick(search_company) {\r\n-    await t.click(this.click_company);\r\n-    await t.typeText(this.company_search, search_company);\r\n-    await t.click(this.country_search_click.withText(search_company));\r\n-}\r\n-async SetjobDescription(jobdescription_value){\r\n-    const iframeSelector = this.job_description_selection\r\n-        await t\r\n-            .switchToIframe(iframeSelector)\r\n-            .typeText(this.job_description, jobdescription_value)\r\n-            .switchToMainWindow()\r\n-            .wait(5000);\r\n-           await t.click(this.submit);\r\n-        await t.wait(5000);\r\n-}\r\n-}\r\n-\r\n export default new Add_Jobs_Page();\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1710013798027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n \r\n         this.job_description_selection = Selector('#description_ifr')\r\n         this.job_description = Selector('body#tinymce')\r\n         this.submit = Selector('#submit')\r\n+        this.table_data = Selector('Selector('#jobDatatable')')\r\n \r\n     }\r\n     async Click_Jobs() {\r\n         await t.click(this.click_jobs);\r\n"
+                },
+                {
+                    "date": 1710013836996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \r\n         this.job_description_selection = Selector('#description_ifr')\r\n         this.job_description = Selector('body#tinymce')\r\n         this.submit = Selector('#submit')\r\n-        this.table_data = Selector('Selector('#jobDatatable')')\r\n+        this.table_data = Selector('#jobDatatable')\r\n \r\n     }\r\n     async Click_Jobs() {\r\n         await t.click(this.click_jobs);\r\n"
+                },
+                {
+                    "date": 1710014612385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,11 @@\n         await t\r\n             .switchToIframe(iframeSelector)\r\n             .typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n-            .wait(5000);\r\n+            .wait(5000);      \r\n+    }\r\n+    async Click_submit(){\r\n         await t.click(this.submit);\r\n         await t.wait(5000);\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1710014629903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,11 +36,11 @@\n         await t\r\n             .switchToIframe(iframeSelector)\r\n             .typeText(this.job_description, jobdescription_value)\r\n             .switchToMainWindow()\r\n-            .wait(5000);      \r\n+            .wait(5000);\r\n     }\r\n-    async Click_submit(){\r\n+    async Click_Submit() {\r\n         await t.click(this.submit);\r\n         await t.wait(5000);\r\n     }\r\n }\r\n"
+                }
+            ],
+            "date": 1709928018985,
+            "name": "Commit-0",
+            "content": "import { ClientFunction, t, Selector } from 'testcafe';\r\n\r\n\r\nclass Add_Candidate_Page {\r\n\r\n    constructor() {"
+        }
+    ]
+}
