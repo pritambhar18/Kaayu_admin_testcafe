@@ -21,16 +21,22 @@ dataset.forEach(data => {
         await Add_jobs_Pages.SetjobDescription(data.job_description);
         await Add_jobs_Pages.Click_Submit();
 
-        /*const actual_data = Selector('#job-table tbody');
-        console.log('log2',actual_data)
-        console.log('log3',actual_data.innerText)
-        await t.expect(await actual_data.textContent).contains(data.job_title)
-        .then(() => {
-            console.log(`data is present in the list. job title:${data.job_title}`);
-        })
-        .catch(error => {
-            console.error(`data is not present in the list. job title:${data.job_title}. Error: ${error}`);
-        })*/
+
+        /* tooltip handel for the job list section */ 
+
+        const tooltipSelector = Selector('.jobs_show span');
+        await t.hover(tooltipSelector);
+        //console.log('tooltip',tooltipSelector.textContent)
+        const tooltipAttributeValue = await tooltipSelector.getAttribute('data-bs-original-title');
+
+        console.log('Tooltip Attribute Value:', tooltipAttributeValue);
+        await t.expect(tooltipAttributeValue).eql(data.job_title)
+            .then(() => {
+                console.log(`data is added successfully in the list. Expected job title:${tooltipAttributeValue} , Actual Job title;${data.job_title}`);
+            })
+            .catch(error => {
+                console.error(`data is not added successfully in the list. Expected job title:${tooltipAttributeValue} , Actual Job title;${data.job_title}. Error: ${error}`);
+            })
 
 
 
@@ -40,7 +46,4 @@ dataset.forEach(data => {
 
 
 
-
-//Run the testnpx testcafe chrome .\Tests\kaayu1.js
-// For run in terminal we have to use    npx testcafe chrome tests/ -e
 
